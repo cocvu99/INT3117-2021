@@ -30,16 +30,24 @@ public class HappyNumber {
         int sum = 0;
         if (num1 > 500 ) {
             return 1;
-        } if (num2 > 500){
+        } else if (num2 > 500){
             return 2;
         } else {
             if (isHappy(num1) && isHappy(num2)) {
                 sum = num1 + num2;
                 return sum;
             } else{
-                int soXui = isHappy(num2) ? num1 : num2;
-                return soXui;
+                int soXui;
+                if (isHappy(num1)){
+                    return num2;
+                }
+                if (isHappy(num2)){
+                    return num1;
+                }
+                if(!isHappy(num1) && !isHappy(num2)){
+                    return num1 > num2 ? num1 : num2;
+                }
             }
-        }
+        } return 0;
     }
 }
